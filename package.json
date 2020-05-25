@@ -8,11 +8,16 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vubular/data-browser": "0.0.13",
+    "buefy": "^0.8.20",
+    "bulma": "^0.8.2",
     "core-js": "^3.6.4",
     "tailwindcss": "^1.4.6",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.2.0",
     "@vue/cli-plugin-babel": "^4.3.0",
     "@vue/cli-plugin-eslint": "^4.3.0",
     "@vue/cli-service": "^4.3.0",
@@ -33,7 +38,14 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-mixed-spaces-and-tabs": 0,
+      "no-side-effects-in-computed-properties": 0,
+      "vue/require-v-for-key": 0,
+      "vue/no-side-effects-in-computed-properties": 0,
+      "vue/no-use-v-if-with-v-for": 0,
+      "no-redeclare": 0
+    }
   },
   "browserslist": [
     "> 1%",
