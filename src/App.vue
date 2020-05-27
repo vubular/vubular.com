@@ -2,18 +2,18 @@
     <div id="app">
         <navbar class="sticky top-0 z-10"></navbar>
         <div class="m-20 w1024">
-            <vubular-data-browser></vubular-data-browser>
+            <vubular-data-browser-example></vubular-data-browser-example>
         </div>
     </div>
 </template>
 
 <script>
     import Navbar from './components/Navbar.vue'
-    import VubularDataBrowser from './components/VubularDataBrowser.vue'
+    import VubularDataBrowserExample from './components/VubularDataBrowserExample.vue'
 
     export default {
         name: 'App',
-        components: { Navbar, VubularDataBrowser }
+        components: { Navbar, VubularDataBrowserExample }
     }
 </script>
 <style scoped>
