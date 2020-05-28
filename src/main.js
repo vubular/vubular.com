@@ -3,7 +3,7 @@ Vue.config.devtools = true;
 
 import App from './App.vue'
 import './assets/css/tailwind.css'
-import 'bulma/css/bulma.css'
+import 'buefy/dist/buefy.css';
 
 import Buefy from 'buefy';
 Vue.use(Buefy);

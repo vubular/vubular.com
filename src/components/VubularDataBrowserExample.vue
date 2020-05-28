@@ -10,7 +10,7 @@
         	</div>
             <hr>
 
-            <div class="">
+            <div class=" mb-8">
                 <div class="grid grid-cols-12">
                     <div class="col-span-4 p-4">
                         <div class="block">
@@ -169,7 +169,7 @@
         </div>
         <!-- Vubular Data Browser #Component -->
         <div>
-            <vubular-data-browser :data="fetchItems" fields="fields" :hero="toggleHero" :controls="toggleControls">
+            <vubular-data-browser :data="fetchItems" fields="fields" :hero="toggleHero" :controls="toggleControls" :isLoading="false">
                 <template v-slot:thead>
                     <tr>
                         <th>ID</th>
