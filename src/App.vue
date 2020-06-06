@@ -21,7 +21,7 @@
 		components: { Navbar, Elements, Form, DataBrowser, Invoicing, Foooter },
 		data() {
 			return {
-				page: "Elements",
+				page: "Data Browser",
 				pages: ["Elements", "Form", "Data Browser", "Invoicing"]
 			}
 		},
