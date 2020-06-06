@@ -30,7 +30,7 @@
 		props: ["fields", "hero", "controls", "loading"],
 		computed: {
 			data() {
-				return data.default;
+				return data;
 			}
 		}
 	}
