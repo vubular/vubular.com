@@ -2,7 +2,9 @@ import Vue from 'vue'
 Vue.config.devtools = true;
 
 import App from './App.vue'
-import './assets/css/global.css'
+
+import 'tailwindcss/dist/tailwind.min.css';
+import 'buefy/dist/buefy.min.css';
 
 import Buefy from 'buefy';
 Vue.use(Buefy);

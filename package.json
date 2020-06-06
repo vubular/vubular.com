@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@vubular/data-browser": "0.0.13",
-    "bulma": "^0.8.2",
     "buefy": "^0.8.20",
     "core-js": "^3.6.4",
     "tailwindcss": "^1.4.6",
