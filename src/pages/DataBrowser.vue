@@ -102,15 +102,9 @@
 								</div>
 								<div class="mb-2">
 									<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
-										Create
+										Per page
 									</label>
-									<input class="appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Title" v-model="controlsCreate">
-								</div>
-								<div class="mb-2">
-									<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
-										Archive
-									</label>
-									<input class="appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Title" v-model="controlsArchive">
+									<input class="appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="title" type="text" placeholder="Title" v-model="paginationPerPage">
 								</div>
 							</div>
 						</div>
@@ -130,20 +124,20 @@
 								<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
 									Compact
 								</label>
-								<div class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2">
-									<!-- <i class="fa fa-check text-green-400"></i> -->
+								<div @click="viewToggle('compact')" class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2 cursor-pointer">
+									<i v-if="view.includes('compact')" class="fa fa-check text-green-400"></i>
 								</div>
 								<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
 									Docked
 								</label>
-								<div class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2">
-									<!-- <i class="fa fa-check text-green-400"></i> -->
+								<div @click="viewToggle('docked')" class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2 cursor-pointer">
+									<i v-if="view.includes('docked')" class="fa fa-check text-green-400"></i>
 								</div>
 								<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
 									Bordered
 								</label>
-								<div class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2">
-									<!-- <i class="fa fa-check text-green-400"></i> -->
+								<div @click="viewToggle('bordered')" class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2 cursor-pointer">
+									<i v-if="view.includes('bordered')" class="fa fa-check text-green-400"></i>
 								</div>
 								<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
 									View
@@ -171,6 +165,7 @@
 		<vubular-data-browser-demo
 				:fields="fields"
 				:hero="hero"
+				:view="view"
 				:loading="false"
 				:controls="controls"/>
 		<hr>
@@ -187,13 +182,6 @@
 		data() {
 			return {
 				fields: "index,name,gender",
-				checkboxCustom: 'Show',
-				// controls: "create::,archive::,pagination::",
-				checkboxGroup: ['search'],
-				pagination: 'pagination::',
-				togglePagination: true,
-				toggleAllControls: true,
-
 				updateProps: false,
 
 				hero: null,
@@ -204,6 +192,12 @@
 				controls: null,
 				controlsCreate: "create:/create-route",
 				controlsArchive: "archive:/archive-route",
+
+				view: "table",
+
+				pagination: null,
+				paginationPerPage: 10,
+
 			}
 		},
 		beforeMount() {
@@ -229,21 +223,19 @@
 				}
 			},
 			setControls() {
-				this.controls = this.controlsCreate.concat(",", this.controlsArchive);
+				this.controls = "pagination:"+this.paginationPerPage+", " + this.controlsCreate.concat(",", this.controlsArchive);
+			},
+			viewToggle(string) {
+				if(this.view.includes(string)) {
+					this.view = this.view.replace(string, "");
+				} else {
+					this.view = this.view.concat(string);
+				}
 			}
 		},
 		computed: {
 			returnData() {
 				return this.item;
-			},
-			hideControls() { return (this.toggleAllControls == true) ? 'hide' : this.toggleControls; },
-			toggleControls() {
-				let controls = this.checkboxGroup.concat(this.pagination);
-				let a = controls.toString();
-				return (this.toggleAllControls == true) ? 'hide' : a;
-			},
-			test() {
-				return this.checkboxGroup.concat(this.pagination);
 			}
 		},
 		watch: {
@@ -252,6 +244,7 @@
 			heroSubtitle() { if(this.hero!="hide") { this.setHero(); } },
 			controlsCreate() { if(this.controls!="hide") { this.setControls(); } },
 			controlsArchive() { if(this.controls!="hide") { this.setControls(); } },
+			paginationPerPage() { if(this.controls!="hide") { this.setControls(); } },
 		}
 	}
 </script>

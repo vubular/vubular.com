@@ -4,6 +4,8 @@
 		:fields="fields"
 		:hero="hero"
 		:controls="controls"
+		:pagination="pagination"
+		:view="view"
 		:isLoading="loading">
 		<template v-slot:thead>
 			<tr>
@@ -27,7 +29,7 @@
 	import data from "../data.js";
 	export default {
 		name: "VubularDataBrowserDemo",
-		props: ["fields", "hero", "controls", "loading"],
+		props: ["fields", "hero", "controls", "pagination", "view", "loading"],
 		computed: {
 			data() {
 				return data;
