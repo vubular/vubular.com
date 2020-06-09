@@ -64,7 +64,7 @@
 								<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
 									Hide
 								</label>
-								<div @click="hideProp('controls')" class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2">
+								<div @click="hideProp('controls')" class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2 cursor-pointer">
 									<i v-if="String(controls) && controls=='hide'" class="fa fa-check text-green-400"></i>
 								</div>
 								<div class="mb-2">
@@ -97,7 +97,7 @@
 								<label class="block text-gray-700 text-sm font-bold" for="title" style="margin-bottom: 5px;">
 									Hide
 								</label>
-								<div @click="hideProp('pagination')" class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2">
+								<div @click="hideProp('pagination')" class="bg-white shadow w-6 h-6 p-1 flex justify-center items-center mr-2 cursor-pointer">
 									<i v-if="String(pagination) && pagination=='hide'" class="fa fa-check text-green-400"></i>
 								</div>
 								<div class="mb-2">
