@@ -11,6 +11,7 @@
 	import Navbar from './components/Navbar.vue'
 	import Foooter from './components/Foooter.vue'
 
+	import Layout from './pages/Layout.vue'
 	import Elements from './pages/Elements.vue'
 	import Form from './pages/Form.vue'
 	import DataBrowser from './pages/DataBrowser.vue'
@@ -18,11 +19,11 @@
 
 	export default {
 		name: 'App',
-		components: { Navbar, Elements, Form, DataBrowser, Invoicing, Foooter },
+		components: { Navbar, Layout, Elements, Form, DataBrowser, Invoicing, Foooter },
 		data() {
 			return {
-				page: "Data Browser",
-				pages: ["Elements", "Form", "Data Browser", "Invoicing"]
+				page: "Layout",
+				pages: ["Layout", "Elements", "Form", "Data Browser", "Invoicing"]
 			}
 		},
 		methods: {

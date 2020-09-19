@@ -12,6 +12,9 @@ Vue.use(Buefy);
 import DataBrowser from '@vubular/data-browser';
 Vue.use(DataBrowser);
 
+import Layout from '@vubular/layout';
+Vue.use(Layout);
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
